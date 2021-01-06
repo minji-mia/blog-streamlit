@@ -12,7 +12,17 @@ import matplotlib
 matplotlib.use('Agg')
 from wordcloud import WordCloud,STOPWORDS, ImageColorGenerator
 
+# Security
+# passlib, hashlib, bcrypt, scrypt
+import hashlib
+def make_hashes(pw):
+    return hashlib.sha256(str.encode(pw)).hexdigest()
 
+def check_hashes(pw, hashed_text):
+    if make_hashes(pw) == hashed_text:
+        return hashed_text
+    return False
+         
 # Layout templates
 title_temp = """
     <div style="background-color:#f1d4d4;padding:10px;border-radius:10px;margin:10px">
