@@ -66,6 +66,16 @@ def main():
                 st.success("Logged in as {}".format(user_name))
                 work = st.selectbox("Work", ["Add Post", "Manage Blog", "Profile Setting"])
 
+                if work == "Add Post":
+                    st.subheader("Add Articles")
+                    create_table()
+                    author = st.text_input("Enther Author Name", max_chars=50)
+                    title = st.text_input("Enther Post Title")
+                    article = st.text_area("Post Article", height=200)
+                    post_date = st.date_input("Date")
+                    if st.button("Add"):
+                        add_data(author, title, article, post_date)
+                        st.success("Post:{} saved".format(title))
 
     elif choice == "Sign Up":
         st.subheader("Create a new account")
