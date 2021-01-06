@@ -53,6 +53,20 @@ def main():
             b_post_date = i[3]
             st.markdown(title_temp.format(b_title, b_author, b_article, b_post_date), unsafe_allow_html=True)
 
+    elif choice == "Login":
+        st.subheader("Logged In")
+        user_name = st.sidebar.text_input("User name")
+        pw = st.sidebar.text_input("Password", type='password')
+        if st.sidebar.button("Login"):
+            create_user_table()
+            hashed_pw = make_hashes(pw)
+
+            result = login(user_name, check_hashes(hashed_pw))
+            if result:
+                st.success("Logged in as {}".format(user_name))
+                work = st.selectbox("Work", ["Add Post", "Manage Blog", "Profile Setting"])
+
+
     elif choice == "Sign Up":
         st.subheader("Create a new account")
         new_user = st.text_input("User name")
