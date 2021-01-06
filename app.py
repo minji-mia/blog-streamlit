@@ -11,7 +11,8 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')
 from wordcloud import WordCloud,STOPWORDS, ImageColorGenerator
-        
+
+
 # Layout templates
 title_temp = """
     <div style="background-color:#f1d4d4;padding:10px;border-radius:10px;margin:10px">
@@ -24,6 +25,7 @@ title_temp = """
     <h6 style="color:#000000;text-align:right;">Post Date: {}</h6>
     </div> 
 """
+
 
 def main():
     """A Simple CRUD Blog"""
@@ -40,6 +42,17 @@ def main():
             b_article = str(i[2])[0:50]
             b_post_date = i[3]
             st.markdown(title_temp.format(b_title, b_author, b_article, b_post_date), unsafe_allow_html=True)
+
+    elif choice == "Sign Up":
+        st.subheader("Create a new account")
+        new_user = st.text_input("User name")
+        new_pw = st.text_input("Password", type='password')
+
+        if st.button("Sign up"):
+            create_user_table()
+            add_userdata(new_user, make_hashes(new_pw))
+            st.success("You have successfully create an account")     
+
 
 if __name__ == '__main__':
     main()
