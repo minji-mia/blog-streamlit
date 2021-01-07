@@ -76,7 +76,7 @@ def main():
                     if st.button("Add"):
                         add_data(author, title, article, post_date)
                         st.success("Post:{} saved".format(title))
-                        
+
                 elif work == "Manage Blog":
                     st.subheader("Manage Articles")
 
@@ -86,6 +86,11 @@ def main():
 
                     title_list = [i[0] for i in view_all_titles()]
                     delete_by_title = st.selectbox("Unique Title", title_list)
+
+                    if st.button("Delete"):
+                        delete_data(delete_by_title)
+                        st.warning("Deleted: {}".format(delete_by_title))
+                        
     elif choice == "Sign Up":
         st.subheader("Create a new account")
         new_user = st.text_input("User name")
