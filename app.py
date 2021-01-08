@@ -90,6 +90,21 @@ def main():
                     if st.button("Delete"):
                         delete_data(delete_by_title)
                         st.warning("Deleted: {}".format(delete_by_title))
+
+                    if st.checkbox("Metircs"):
+                        new_df = clean_db
+                        new_df['Length'] = new_df['Articles'].str.len()
+                        st.dataframe(new_df)
+
+                        st.set_option('deprecation.showPyplotGlobalUse', False)
+
+                        st.subheader("Author Stats")
+                        new_df['Author'].value_counts().plot(kind='bar')
+                        st.pyplot()
+
+                        st.subheader("Author Stats")
+                        new_df['Author'].value_counts().plot.pie()
+                        st.pyplot()
                         
     elif choice == "Sign Up":
         st.subheader("Create a new account")
