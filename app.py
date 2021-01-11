@@ -121,6 +121,12 @@ def main():
                         barh_plot = new_df.plot.barh(x='Author', y='Length', figsize=(20,10))
                         st.pyplot()
 
+                elif work == "Profile Setting":
+                    st.subheader("Profile")
+                    users = view_all_users()
+                    clean_db = pd.DataFrame(users, columns=['User', 'PW'])
+                    st.dataframe(clean_db)
+
     elif choice == "Sign Up":
         st.subheader("Create a new account")
         new_user = st.text_input("User name")
