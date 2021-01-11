@@ -113,7 +113,14 @@ def main():
                         plt.imshow(wordcloud, interpolation='bilinear')
                         plt.axis('off')
                         st.pyplot()
-                        
+
+                    if st.checkbox("BarH Plot"):  
+                        st.subheader("Length of Articles")
+                        new_df = clean_db
+                        new_df['Length'] = new_df['Articles'].str.len()
+                        barh_plot = new_df.plot.barh(x='Author', y='Length', figsize=(20,10))
+                        st.pyplot()
+
     elif choice == "Sign Up":
         st.subheader("Create a new account")
         new_user = st.text_input("User name")
