@@ -106,6 +106,14 @@ def main():
                         new_df['Author'].value_counts().plot.pie()
                         st.pyplot()
                         
+                    if st.checkbox("Word Cloud"):        
+                        st.subheader("Generate Word Cloud")
+                        text = ','.join(new_df['Articles'])
+                        wordcloud = WordCloud().generate(text)
+                        plt.imshow(wordcloud, interpolation='bilinear')
+                        plt.axis('off')
+                        st.pyplot()
+                        
     elif choice == "Sign Up":
         st.subheader("Create a new account")
         new_user = st.text_input("User name")
