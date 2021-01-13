@@ -126,6 +126,8 @@ def main():
                     users = view_all_users()
                     clean_db = pd.DataFrame(users, columns=['User', 'PW'])
                     st.dataframe(clean_db)
+            else:
+                st.warning("Incorrect user name and password")
 
     elif choice == "Sign Up":
         st.subheader("Create a new account")
@@ -135,7 +137,7 @@ def main():
         if st.button("Sign up"):
             create_user_table()
             add_userdata(new_user, make_hashes(new_pw))
-            st.success("You have successfully create an account")     
+            st.success("You have successfully create an account")      
 
 
 if __name__ == '__main__':
