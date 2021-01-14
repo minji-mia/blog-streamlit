@@ -139,6 +139,19 @@ def main():
             add_userdata(new_user, make_hashes(new_pw))
             st.success("You have successfully create an account")      
 
-
+    elif choice == "View Posts":
+        st.subheader("View Articles")
+        title_list = [i[0] for i in view_all_titles()]
+        postlist = st.sidebar.selectbox("View Posts", title_list)
+        post_result = get_blog_by_title(postlist)
+        for i in post_result:
+            b_author = i[0]
+            b_title = i[1]
+            b_article = i[2]
+            b_post_date = i[3]
+            st.text("Reading Time: {}s".format(reading_time(b_article)))
+            st.markdown(head_temp.format(b_title, b_author, b_post_date), unsafe_allow_html=True)
+            st.markdown(full_temp.format(b_article), unsafe_allow_html=True)
+            
 if __name__ == '__main__':
     main()
