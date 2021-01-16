@@ -153,5 +153,11 @@ def main():
             st.markdown(head_temp.format(b_title, b_author, b_post_date), unsafe_allow_html=True)
             st.markdown(full_temp.format(b_article), unsafe_allow_html=True)
             
+    elif choice == "Search":
+        st.subheader("Search Articles")
+        search_item = st.text_input("Enter Search Term")
+        search_choice = st.radio("Field to Search by",("Title", "Author"))  
+        if st.button("Search"):
+
 if __name__ == '__main__':
     main()
