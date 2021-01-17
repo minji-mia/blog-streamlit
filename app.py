@@ -159,5 +159,8 @@ def main():
         search_choice = st.radio("Field to Search by",("Title", "Author"))  
         if st.button("Search"):
 
+            if search_choice == "Title":
+                article_result = get_blog_by_title(search_item)
+
 if __name__ == '__main__':
     main()
