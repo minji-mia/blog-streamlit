@@ -164,5 +164,14 @@ def main():
             elif search_choice == "Author":
                 article_result = get_blog_by_author(search_item)
 
+            for i in article_result:
+                b_author = i[0]
+                b_title = i[1]
+                b_article = i[2]
+                b_post_date = i[3]
+                st.text("Reading Time: {}s".format(reading_time(b_article)))
+                st.markdown(head_temp.format(b_title, b_author, b_post_date), unsafe_allow_html=True)
+                st.markdown(full_temp.format(b_article), unsafe_allow_html=True)
+
 if __name__ == '__main__':
     main()
