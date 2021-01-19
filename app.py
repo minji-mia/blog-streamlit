@@ -161,6 +161,8 @@ def main():
 
             if search_choice == "Title":
                 article_result = get_blog_by_title(search_item)
+            elif search_choice == "Author":
+                article_result = get_blog_by_author(search_item)
 
 if __name__ == '__main__':
     main()
