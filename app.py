@@ -12,6 +12,9 @@ import matplotlib
 matplotlib.use('Agg')
 from wordcloud import WordCloud,STOPWORDS, ImageColorGenerator
 
+# DB
+from db_functions import *
+
 # Security
 # passlib, hashlib, bcrypt, scrypt
 import hashlib
