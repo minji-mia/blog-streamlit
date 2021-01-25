@@ -11,3 +11,8 @@ def create_table():
 def add_data(author, title, article, postdate):
     c.execute('INSERT INTO blogtable(author, title, article, postdate) VALUES(?,?,?,?)', (author, title, article, postdate))
     conn.commit()
+
+def view_all():
+    c.execute('SELECT * FROM blogtable')
+    data = c.fetchall()
+    return data
