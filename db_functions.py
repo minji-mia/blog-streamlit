@@ -16,3 +16,8 @@ def view_all():
     c.execute('SELECT * FROM blogtable')
     data = c.fetchall()
     return data
+
+def view_all_titles():
+    c.execute('SELECT DISTINCT title FROM blogtable') 
+    data = c.fetchall()
+    return data       
