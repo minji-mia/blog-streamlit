@@ -21,3 +21,8 @@ def view_all_titles():
     c.execute('SELECT DISTINCT title FROM blogtable') 
     data = c.fetchall()
     return data       
+
+def get_blog_by_title(title):
+    c.execute('SELECT * FROM blogtable WHERE title="{}"'.format(title)) 
+    data = c.fetchall()
+    return data    
