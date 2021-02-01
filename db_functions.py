@@ -26,3 +26,8 @@ def get_blog_by_title(title):
     c.execute('SELECT * FROM blogtable WHERE title="{}"'.format(title)) 
     data = c.fetchall()
     return data    
+
+def get_blog_by_author(author):
+    c.execute('SELECT * FROM blogtable WHERE author="{}"'.format(author)) 
+    data = c.fetchall()
+    return data
