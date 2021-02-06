@@ -31,3 +31,7 @@ def get_blog_by_author(author):
     c.execute('SELECT * FROM blogtable WHERE author="{}"'.format(author)) 
     data = c.fetchall()
     return data
+
+def delete_data(title):
+    c.execute('DELETE FROM blogtable WHERE title="{}"'.format(title)) 
+    conn.commit()
