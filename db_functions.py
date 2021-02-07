@@ -35,3 +35,9 @@ def get_blog_by_author(author):
 def delete_data(title):
     c.execute('DELETE FROM blogtable WHERE title="{}"'.format(title)) 
     conn.commit()
+
+# Reading Time
+def reading_time(text):
+	total_words = len([ token for token in text.split(" ")])
+	estimated_time = total_words/200.0
+	return estimated_time
