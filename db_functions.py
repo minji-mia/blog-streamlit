@@ -41,3 +41,7 @@ def reading_time(text):
 	total_words = len([ token for token in text.split(" ")])
 	estimated_time = total_words/200.0
 	return estimated_time
+
+# Login/Signup
+def create_usertable():
+	c.execute('CREATE TABLE IF NOT EXISTS userstable(username TEXT,password TEXT)')
