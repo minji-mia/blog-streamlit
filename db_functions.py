@@ -45,3 +45,7 @@ def reading_time(text):
 # Login/Signup
 def create_usertable():
 	c.execute('CREATE TABLE IF NOT EXISTS userstable(username TEXT,password TEXT)')
+
+def add_userdata(username,password):
+	c.execute('INSERT INTO userstable(username,password) VALUES (?,?)',(username,password))
+	conn.commit()
