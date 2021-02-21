@@ -49,3 +49,8 @@ def create_usertable():
 def add_userdata(username,password):
 	c.execute('INSERT INTO userstable(username,password) VALUES (?,?)',(username,password))
 	conn.commit()
+
+def login(username,password):
+	c.execute('SELECT * FROM userstable WHERE username =? AND password = ?',(username,password))
+	data = c.fetchall()
+	return data
