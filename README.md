@@ -1,5 +1,6 @@
 # Blog with Streamlit
 
+This repository includes simple blog with CRUD.
 
 ## Built with
 
